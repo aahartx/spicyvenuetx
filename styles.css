@@ -717,9 +717,8 @@ nav {
 /* Menu Section Layout - Grid-based 2-column layout */
 .menu-items-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px; /* or your preferred gap */
 }
 
 .menu-items-grid::-webkit-scrollbar {
@@ -732,7 +731,7 @@ nav {
     border-radius: 12px;
     padding: 0;
     transition: all 0.3s ease;
-    min-height: 160px;
+    min-height: 130px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -1873,6 +1872,17 @@ section h2::after {
     gap: 10px;
     height: 100%;
     min-height: 200px;
+}
+.card-content {
+    position: relative;
+}
+.chef-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 28px; /* or your preferred size */
+    height: 28px;
+    z-index: 2;
 }
 
 .food-card.redesigned:hover {

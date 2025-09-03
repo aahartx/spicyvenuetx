@@ -382,216 +382,246 @@
     </section>
 
     <script>
-        // Menu data with badges
-        const menuData = [
-            // Tiffins
-            { category: 'tiffins', name: 'IDLI', description: 'Steamed rice and lentil cakes', price: '5.99' },
-            { category: 'tiffins', name: 'IDLI SAMBAR(3)', description: 'Idli served with sambar', price: '7.99' },
-            { category: 'tiffins', name: 'GHEE KARAM IDLI', description: 'Idli with spicy ghee powder', price: '7.99', badge: 'must-try' },
-            { category: 'tiffins', name: 'VADA(2)', description: 'Crispy lentil donuts', price: '6.49' },
-            { category: 'tiffins', name: 'VADA SAMBAR(2)', description: 'Vada served with sambar', price: '7.99' },
-            { category: 'tiffins', name: 'IDLI VADA COMBO', description: 'Combination of idli and vada', price: '7.99' },
-            { category: 'tiffins', name: 'POORI BHAJI', description: 'Puffed bread with potato curry', price: '9.99' },
-            { category: 'tiffins', name: 'POORI WITH CHICKEN CURRY', description: 'Poori served with chicken curry', price: '11.99' },
-            { category: 'tiffins', name: 'POORI WITH GOAT CURRY', description: 'Poori served with goat curry', price: '14.99' },
-            { category: 'tiffins', name: 'UPMA', description: 'Savory semolina porridge', price: '5.99' },
-            { category: 'tiffins', name: 'PONGAL', description: 'Rice and lentil porridge', price: '5.99' },
-            { category: 'tiffins', name: 'PLAIN DOSA', description: 'Crispy rice and lentil crepe', price: '8.99' },
-            { category: 'tiffins', name: 'MASALA DOSA', description: 'Dosa with potato filling', price: '9.99', badge: 'must-try' },
-            { category: 'tiffins', name: 'ONION DOSA', description: 'Dosa with onion topping', price: '9.99' },
-            { category: 'tiffins', name: 'ONION MASALA DOSA', description: 'Dosa with onion and potato filling', price: '9.99' },
-            { category: 'tiffins', name: 'GHEE KARAM DOSA', description: 'Dosa with spicy ghee powder', price: '9.99', badge: 'special' },
+    const menuData = [
+        // Tiffins
+        { category: 'tiffins', name: 'IDLI (3)', price: '5.99' },
+        { category: 'tiffins', name: 'IDLI SAMBAR', price: '7.99' },
+        { category: 'tiffins', name: 'GHEE KARAM IDLI', price: '7.99' },
+        { category: 'tiffins', name: 'VADA (3)', price: '7.99' },
+        { category: 'tiffins', name: 'SAMBAR VADA', price: '8.49' },
+        { category: 'tiffins', name: 'IDLI VADA COMBO', price: '7.99' },
+        { category: 'tiffins', name: 'POORI BHAJI', price: '9.99' },
+        { category: 'tiffins', name: 'POORI CHICKEN CURRY', price: '11.99' },
+        { category: 'tiffins', name: 'POORI GOAT CURRY', price: '14.99' },
+        { category: 'tiffins', name: 'UPMA', price: '5.99' },
+        { category: 'tiffins', name: 'PONGAL', price: '5.99' },
+        { category: 'tiffins', name: 'PLAIN DOSA', price: '9.99' },
+        { category: 'tiffins', name: 'MASALA DOSA', price: '10.99' },
+        { category: 'tiffins', name: 'ONION DOSA', price: '10.99' },
+        { category: 'tiffins', name: 'ONION MASALA DOSA', price: '10.99' },
+        { category: 'tiffins', name: 'GHEE KARAM DOSA', price: '10.99' },
+        { category: 'tiffins', name: 'PANEER DOSA', price: '10.99' },
+        { category: 'tiffins', name: 'CHICKEN 65 DOSA', price: '12.99' },
+        { category: 'tiffins', name: 'GOAT KEEMA DOSA', price: '13.99' },
+        { category: 'tiffins', name: 'GUNTUR KARAM DOSA', price: '10.99' },
+        { category: 'tiffins', name: 'PESARA DOSA', price: '10.99' },
+        { category: 'tiffins', name: 'VEGETABLE DOSA', price: '10.99' },
+        { category: 'tiffins', name: 'MYSORE MASALA DOSA', price: '10.99' },
 
-            // Appetizers  
-            { category: 'appetizers', name: 'VEG MANCHURIA', description: 'Indo-Chinese vegetable fritters', price: '9.99' },
-            { category: 'appetizers', name: 'PANEER 65', description: 'Spicy cottage cheese fritters', price: '10.99' },
-            { category: 'appetizers', name: 'CHILLI PANEER', description: 'Indo-Chinese style spicy paneer', price: '10.99' },
-            { category: 'appetizers', name: 'JALAPENO PANEER', description: 'Paneer with spicy jalapenos', price: '11.99' },
-            { category: 'appetizers', name: 'GOBI 65', description: 'Spicy cauliflower fritters', price: '9.99' },
-            { category: 'appetizers', name: 'GOBI MANCHURIA', description: 'Indo-Chinese style cauliflower', price: '9.99' },
-            { category: 'appetizers', name: 'CHILLI BABYCORN', description: 'Spicy baby corn preparation', price: '10.99' },
-            { category: 'appetizers', name: 'CRISPY CORN', description: 'Crispy fried corn kernels', price: '10.99' },
-            { category: 'appetizers', name: 'SPRING ROLLS', description: 'Vegetable filled crispy rolls', price: '9.99' },
-            { category: 'appetizers', name: 'CHILLI EGG', description: 'Spicy egg preparation', price: '10.99' },
-            { category: 'appetizers', name: "SURAVI'S SPECIAL CHICKEN 65", description: 'Signature spicy chicken fritters', price: '10.99', badge: 'special' },
-            { category: 'appetizers', name: 'CHILLI CHICKEN', description: 'Indo-Chinese style spicy chicken', price: '10.99' },
-            { category: 'appetizers', name: 'GUNTUR KODI VEPUDU', description: 'Spicy Guntur style chicken fry', price: '10.99', badge: 'must-try' },
-            { category: 'appetizers', name: 'MIRAPA KODI', description: 'Spicy pepper chicken', price: '10.99' },
-            { category: 'appetizers', name: 'KARIVAEPAKU KODI', description: 'Curry leaf flavored chicken', price: '10.99' },
-            { category: 'appetizers', name: 'CHICKEN GHEE ROAST FRY', description: 'Chicken roasted in ghee', price: '11.99', badge: 'special' },
-            { category: 'appetizers', name: 'JALAPENO CHICKEN', description: 'Chicken with spicy jalapenos', price: '11.99' },
-            { category: 'appetizers', name: 'GARLIC CHICKEN DRY', description: 'Garlic flavored chicken fry', price: '10.99' },
-            { category: 'appetizers', name: "SURAVI'S SPL CHICKEN FRY", description: 'Special house chicken fry', price: '12.99', badge: 'special' },
-            { category: 'appetizers', name: 'GOAT FRY', description: 'Spicy goat fry', price: '14.99' },
-            { category: 'appetizers', name: 'GOAT GHEE ROAST FRY', description: 'Goat roasted in ghee', price: '14.99', badge: 'special' },
-            { category: 'appetizers', name: 'GOAT PEPPER FRY', description: 'Pepper flavored goat fry', price: '14.99' },
-            { category: 'appetizers', name: 'CHILLI SHRIMP', description: 'Spicy shrimp preparation', price: '14.99' },
-            { category: 'appetizers', name: 'APOLLO FISH', description: 'Special spicy fish fry', price: '14.99', badge: 'must-try' },
+        // Starters (Appetizers) - Veg
+        { category: 'appetizers', name: 'VEG MANCHURIA', price: '10.99' },
+        { category: 'appetizers', name: 'GOBI MANCHURIA', price: '10.99' },
+        { category: 'appetizers', name: 'GOBI 65', price: '10.99' },
+        { category: 'appetizers', name: 'SV SPECIAL JALAPENO GOBI', price: '11.99' },
+        { category: 'appetizers', name: 'CHILLI GOBI', price: '11.99' },
+        { category: 'appetizers', name: 'PANEER 65', price: '12.99' },
+        { category: 'appetizers', name: 'CHILLI PANEER', price: '12.99' },
+        { category: 'appetizers', name: 'JALAPENO PANEER', price: '12.99' },
+        { category: 'appetizers', name: 'CHILLI BABYCORN', price: '12.99' },
+        { category: 'appetizers', name: 'SV SPECIAL CRISPY CORN', price: '12.99' },
 
-            // Indian Curries
-            { category: 'indian_curries', name: 'PALAK DAL', description: 'Spinach with lentils', price: '11.99' },
-            { category: 'indian_curries', name: 'DAL TADKA', description: 'Tempered yellow lentils', price: '11.99' },
-            { category: 'indian_curries', name: 'TOMATO DAL', description: 'Lentils with tomatoes', price: '11.99' },
-            { category: 'indian_curries', name: 'PANEER BUTTER MASALA', description: 'Cottage cheese in rich butter sauce', price: '14.99', badge: 'must-try' },
-            { category: 'indian_curries', name: 'PANEER TIKKA MASALA', description: 'Grilled cottage cheese in spicy gravy', price: '14.99' },
-            { category: 'indian_curries', name: 'ANDHRA CHICKEN CURRY', description: 'Spicy Andhra style chicken', price: '13.99', badge: 'must-try' },
-            { category: 'indian_curries', name: 'BUTTER CHICKEN MASALA', description: 'Chicken in rich butter sauce', price: '13.99', badge: 'must-try' },
+        // Starters (Appetizers) - Non-Veg
+        { category: 'appetizers', name: 'ALLAM KODI SV SPECIAL', price: '12.99' },
+        { category: 'appetizers', name: 'CHICKEN 65', price: '12.99' },
+        { category: 'appetizers', name: 'CHILLI CHICKEN', price: '12.99' },
+        { category: 'appetizers', name: 'GUNTUR KODI VEPUDU', price: '12.99' },
+        { category: 'appetizers', name: 'CURRY LEAF CHICKEN', price: '12.99' },
+        { category: 'appetizers', name: 'CHICKEN GHEE ROAST', price: '12.99' },
+        { category: 'appetizers', name: 'JALAPENO CHICKEN SV SPCL', price: '12.99' },
+        { category: 'appetizers', name: 'GARLIC CHICKEN', price: '12.99' },
+        { category: 'appetizers', name: 'GOAT GHEE ROAST FRY', price: '15.99' },
+        { category: 'appetizers', name: 'GOAT PEPPER FRY', price: '15.99' },
+        { category: 'appetizers', name: 'EGG CURRY', price: '11.99' },
+        { category: 'appetizers', name: 'EGG MASALA', price: '11.99' },
+        { category: 'appetizers', name: 'STREET STYLE EGG FRY', price: '11.99' },
 
-            // Biryanis
-            { category: 'biryanis_and_pulavs', name: 'VEGETABLE BIRYANI', description: 'Mixed vegetable biryani', price: '13.99' },
-            { category: 'biryanis_and_pulavs', name: 'CHICKEN DUM BIRYANI', description: 'Traditional chicken biryani', price: '14.99', badge: 'must-try' },
-            { category: 'biryanis_and_pulavs', name: 'VIJAYAWADA BONELESS CHICKEN BIRYANI', description: 'Special boneless chicken biryani', price: '15.99', badge: 'special' },
-            { category: 'biryanis_and_pulavs', name: 'GOAT DUM BIRYANI', description: 'Traditional goat biryani', price: '16.99' },
+        // Curries
+        { category: 'indian_curries', name: 'PALAK DAL', price: '5.99' },
+        { category: 'indian_curries', name: 'TOMATO DAL', price: '5.99' },
+        { category: 'indian_curries', name: 'VEG CURRY', price: '5.99' },
+        { category: 'indian_curries', name: 'ROTI CHUTNEY', price: '5.99' },
+        { category: 'indian_curries', name: 'MALAI KOFTA', price: '9.99' },
+        { category: 'indian_curries', name: 'KADAI PANEER', price: '9.99' },
+        { category: 'indian_curries', name: 'PANEER BURJI', price: '9.99' },
 
-            // Tandoor
-            { category: 'tandoor', name: 'TANDOORI PANEER TIKKA', description: 'Grilled cottage cheese tikka', price: '11.99' },
-            { category: 'tandoor', name: 'TANDOORI CHICKEN KEBAB', description: 'Grilled chicken kebab', price: '11.99' },
-            { category: 'tandoor', name: 'PLAIN NAAN', description: 'Classic plain naan bread', price: '1.99' },
-            { category: 'tandoor', name: 'GARLIC NAAN', description: 'Garlic flavored naan', price: '2.99' },
+        // Rice (Biryanis, Pulavs, Indo-Chinese) - Veg
+        { category: 'biryanis_and_pulavs', name: 'VEG BIRYANI', price: '13.99' },
+        { category: 'biryanis_and_pulavs', name: 'PANEER BIRYANI', price: '14.99' },
+        { category: 'biryanis_and_pulavs', name: 'GUTTI VANKAYA', price: '13.99' },
+        { category: 'biryanis_and_pulavs', name: 'CASHEW PANEER', price: '15.99' },
+        { category: 'biryanis_and_pulavs', name: 'CASHEW GOBI', price: '14.99' },
+        { category: 'biryanis_and_pulavs', name: 'GREEN MIRCHI PANEER SV SPCL', price: '15.99' },
+        { category: 'biryanis_and_pulavs', name: 'JACK FRUIT PULAV SV SPCL', price: '15.99' },
+        { category: 'biryanis_and_pulavs', name: 'VEG KHEEMA BIRYANI SV SPCL', price: '14.99' },
+        { category: 'biryanis_and_pulavs', name: 'VEG FRIED RICE', price: '12.99' },
+        { category: 'biryanis_and_pulavs', name: 'VEG SCHEZWAN FRIED RICE', price: '12.99' },
+        { category: 'biryanis_and_pulavs', name: 'VEG NOODLES', price: '12.99' },
+        { category: 'biryanis_and_pulavs', name: 'VEG SCHEZWAN NOODLES', price: '12.99' },
 
-            // Snacks
-            { category: 'snacks', name: 'EGG BONDA', description: 'Deep fried egg fritters (4pcs)', price: '4.99' },
-            { category: 'snacks', name: 'ALOO SAMOSA', description: 'Potato stuffed pastry (2pcs)', price: '2.99' },
-            { category: 'snacks', name: 'PANI PURI', description: 'Hollow crisps with flavored water', price: '6.99' },
+        // Rice (Biryanis, Pulavs, Indo-Chinese) - Non-Veg
+        { category: 'biryanis_and_pulavs', name: 'EGG BIRYANI', price: '13.99' },
+        { category: 'biryanis_and_pulavs', name: 'CHICKEN DUM BIRYANI', price: '14.99' },
+        { category: 'biryanis_and_pulavs', name: 'VJD BONELESS CHICKEN', price: '15.99' },
+        { category: 'biryanis_and_pulavs', name: 'CHICKEN GHEE ROAST', price: '16.99' },
+        { category: 'biryanis_and_pulavs', name: 'RAJU GARI KODI PULAV', price: '16.99' },
+        { category: 'biryanis_and_pulavs', name: 'GOAT GHEE ROAST', price: '17.99' },
+        { category: 'biryanis_and_pulavs', name: 'GOAT KEEMA BIRYANI', price: '17.99' },
+        { category: 'biryanis_and_pulavs', name: 'PRAWN GHEE ROAST', price: '17.99' },
+        { category: 'biryanis_and_pulavs', name: 'GOAT DUM SV BIRYANI', price: '17.99' },
+        { category: 'biryanis_and_pulavs', name: 'EGG FRIED RICE', price: '13.99' },
+        { category: 'biryanis_and_pulavs', name: 'EGG SCHEZWAN FRIED RICE', price: '13.99' },
+        { category: 'biryanis_and_pulavs', name: 'CHICKEN FRIED RICE', price: '14.99' },
+        { category: 'biryanis_and_pulavs', name: 'CHICKEN SCHEZWAN FRIED RICE', price: '14.99' },
+        { category: 'biryanis_and_pulavs', name: 'EGG NOODLES', price: '13.99' },
+        { category: 'biryanis_and_pulavs', name: 'EGG SCHEZWAN NOODLES', price: '13.99' },
+        { category: 'biryanis_and_pulavs', name: 'CHICKEN NOODLES', price: '14.99' },
+        { category: 'biryanis_and_pulavs', name: 'CHICKEN SCHEZWAN NOODLES', price: '14.99' },
 
-            // Drinks
-            { category: 'juice_and_drinks', name: 'SUGARCANE', description: 'Fresh sugarcane juice', price: '6.99' },
-            { category: 'juice_and_drinks', name: 'MANGO LASSI', description: 'Mango yogurt drink', price: '4.99' },
-            { category: 'juice_and_drinks', name: 'MASALA CHAI(L)', description: 'Large spiced tea', price: '1.99' }
-        ];
+        // Tandoor - Kebabs
+        { category: 'tandoor', name: 'TANDOORI PANEER TIKKA', price: '11.99' },
+        { category: 'tandoor', name: 'TANDOORI CHICKEN KEBAB', price: '11.99' },
+        { category: 'tandoor', name: 'TANGDI KABAB', price: '11.99' },
+        { category: 'tandoor', name: 'MURGH MALAI KEBAB', price: '11.99' },
+        { category: 'tandoor', name: 'HARYALI CHICKEN TIKKA', price: '11.99' },
+        { category: 'tandoor', name: 'TANDOORI CHICKEN TIKKA (BL)', price: '12.99' },
 
-        // Function to create menu item card with new layout
-        function createMenuItemCard(item) {
-            const badgeHtml = item.badge ? `<div class="item-badge badge-${item.badge}">${item.badge === 'special' ? "Chef's Special" : 'Must Try'}</div>` : '';
+        // Tandoor - Bread
+        { category: 'tandoor', name: 'PLAIN NAAN', price: '1.99' },
+        { category: 'tandoor', name: 'GARLIC NAAN', price: '2.99' },
+        { category: 'tandoor', name: 'BUTTER NAAN', price: '2.49' },
+        { category: 'tandoor', name: 'GARLIC BUTTER NAAN', price: '2.99' },
+        { category: 'tandoor', name: 'BULLET NAAN', price: '3.49' },
+        { category: 'tandoor', name: 'TANDOORI ROTI', price: '2.99' },
+
+        // Snacks
+        { category: 'snacks', name: 'BEZAWADA PUNUGULU', price: '5.99' },
+        { category: 'snacks', name: 'PUNUGULU (8)', price: '5.99' },
+        { category: 'snacks', name: 'EGG BONDA (4)', price: '5.99' },
+        { category: 'snacks', name: 'ALOO SAMOSA (2)', price: '3.99' },
+        { category: 'snacks', name: 'ONION SAMOSA (3)', price: '2.99' },
+        { category: 'snacks', name: 'MYSORE BONDA (4)', price: '5.99' },
+        { category: 'snacks', name: 'MIRCHI BAJJI (4)', price: '4.99' },
+        { category: 'snacks', name: 'STUFFED MIRCHI (2)', price: '4.99' },
+        { category: 'snacks', name: 'CUT MIRCHI', price: '4.99' },
+        { category: 'snacks', name: 'ONION PAKODA', price: '5.99' },
+        { category: 'snacks', name: 'MASALA PEANUTS', price: '7.99' },
+        { category: 'snacks', name: 'ALOO BAJJI', price: '4.99' },
+        { category: 'snacks', name: 'MASALA VADA', price: '5.99' },
+        { category: 'snacks', name: 'PANIPURI', price: '6.99' },
+        { category: 'snacks', name: 'SAMOSA CHAAT', price: '6.99' },
+        { category: 'snacks', name: 'DAHI BHALLA PAPDI CHAAT', price: '6.99' },
+        { category: 'snacks', name: 'PANEER FRANKIE', price: '7.99' },
+        { category: 'snacks', name: 'CHICKEN 65 FRANKIE', price: '8.99' },
+
+        // Drinks
+        { category: 'juice_and_drinks', name: 'SUGARCANE JUICE', price: '6.99' },
+        { category: 'juice_and_drinks', name: 'ORANGE JUICE', price: '5.99' },
+        { category: 'juice_and_drinks', name: 'WATERMELON JUICE', price: '5.99' },
+        { category: 'juice_and_drinks', name: 'SWEET LASSI', price: '5.99' },
+        { category: 'juice_and_drinks', name: 'MANGO LASSI', price: '5.99' },
+        { category: 'juice_and_drinks', name: 'SITHAPHAL SHAKE', price: '5.99' }
+    ];
+
+    function createMenuItemCard(item) {
+        return `
+            <div class="menu-item-card">
+                <div class="card-content">
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-price">$${item.price}</div>
+                    <a href="https://order.toasttab.com/online/chapter-two-11625-custer-road-suite-100" target="_blank" rel="noopener" class="add-to-cart-btn">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+        `;
             
-            return `
-                <article class="menu-item-card">
-                    ${badgeHtml}
-                    <div class="card-content">
-                        <h4 class="item-name">${item.name}</h4>
-                        <p class="item-description">${item.description}</p>
-                        <div class="card-footer">
-                            <span class="item-price">$${item.price}</span>
-                            <a href="https://order.toasttab.com/online/chapter-two-11625-custer-road-suite-100" target="_blank" rel="noopener" class="add-to-cart-btn">
-                                Order Now
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            `;
-        }
+    }
 
-        // Function to update menu with all categories
-        function updateMenuSideBySide() {
-            const menuGrid = document.querySelector('.menu-grid');
-            if (!menuGrid) {
-                return;
-            }
+    function createMenuItemCard(item) {
+    const isSVSpecial = /sv\s*spcl|sv\s*special/i.test(item.name);
+    return `
+        <div class="menu-item-card">
+            <div class="card-content">
+                ${isSVSpecial ? `<img src="images/chef.png" alt="Chef Special" title="SV Special" class="chef-icon" />` : ''}
+                <div class="item-name">${item.name}</div>
+                <div class="item-price">$${item.price}</div>
+                <a href="https://order.toasttab.com/online/chapter-two-11625-custer-road-suite-100" target="_blank" rel="noopener" class="add-to-cart-btn">
+                    Order Now
+                </a>
+            </div>
+        </div>
+    `;
+    }
 
-            menuGrid.innerHTML = '';
-            
-            // Group items by category
-            const groupedItems = menuData.reduce((acc, item) => {
-                if (!acc[item.category]) {
-                    acc[item.category] = [];
-                }
-                acc[item.category].push(item);
-                return acc;
-            }, {});
+    function updateMenu(category = 'all') {
+        const menuGrid = document.querySelector('.menu-grid');
+        if (!menuGrid) return;
 
-            // Create sections for each category
-            Object.entries(groupedItems).forEach(([category, categoryItems]) => {
-                if (categoryItems.length > 0) {
-                    const categoryDisplayNames = {
-                        'tiffins': 'Tiffins',
-                        'appetizers': 'Starters',
-                        'indian_curries': 'Curries', 
-                        'biryanis_and_pulavs': 'Rice',
-                        'tandoor': 'Tandoor',
-                        'snacks': 'Snacks',
-                        'juice_and_drinks': 'Drinks'
-                    };
-                    
-                    const sectionHtml = `
-                        <div class="menu-section">
-                            <h3 style="font-size: 1.8rem; color: #2d3748; margin: 30px 0 20px 0; border-bottom: 2px solid #e53e3e; padding-bottom: 10px;">${categoryDisplayNames[category]}</h3>
-                            <div class="menu-items-grid">
-                                ${categoryItems.map(item => createMenuItemCard(item)).join('')}
-                            </div>
-                        </div>
-                    `;
-                    menuGrid.innerHTML += sectionHtml;
-                }
-            });
-        }
+        menuGrid.innerHTML = '';
 
-        // Function to update menu with single category
-        function updateMenuSideBySideSingle(category) {
-            const menuGrid = document.querySelector('.menu-grid');
-            if (!menuGrid) return;
+        // Group items by category
+        const groupedItems = menuData.reduce((acc, item) => {
+            if (!acc[item.category]) acc[item.category] = [];
+            acc[item.category].push(item);
+            return acc;
+        }, {});
 
-            menuGrid.innerHTML = '';
-            
-            const categoryItems = menuData.filter(item => item.category === category);
-            
-            if (categoryItems.length > 0) {
-                const categoryDisplayNames = {
-                    'tiffins': 'Tiffins',
-                    'appetizers': 'Starters',
-                    'indian_curries': 'Curries', 
-                    'biryanis_and_pulavs': 'Rice',
-                    'tandoor': 'Tandoor',
-                    'snacks': 'Snacks',
-                    'juice_and_drinks': 'Drinks'
-                };
-                
+        const categoryDisplayNames = {
+            'tiffins': 'Tiffins',
+            'appetizers': 'Starters',
+            'indian_curries': 'Curries',
+            'biryanis_and_pulavs': 'Rice',
+            'tandoor': 'Tandoor',
+            'snacks': 'Snacks',
+            'juice_and_drinks': 'Drinks'
+        };
+
+        if (category === 'all') {
+            Object.entries(groupedItems).forEach(([cat, items]) => {
                 const sectionHtml = `
                     <div class="menu-section">
-                        <h3 style="font-size: 1.8rem; color: #2d3748; margin: 30px 0 20px 0; border-bottom: 2px solid #e53e3e; padding-bottom: 10px;">${categoryDisplayNames[category]}</h3>
+                        <h3 style="font-size: 1.8rem; color: #2d3748; margin: 30px 0 20px 0; border-bottom: 2px solid #e53e3e; padding-bottom: 10px;">
+                            ${categoryDisplayNames[cat] || cat}
+                        </h3>
                         <div class="menu-items-grid">
-                            ${categoryItems.map(item => createMenuItemCard(item)).join('')}
+                            ${items.map(createMenuItemCard).join('')}
+                        </div>
+                    </div>
+                `;
+                menuGrid.innerHTML += sectionHtml;
+            });
+        } else {
+            const items = groupedItems[category] || [];
+            if (items.length > 0) {
+                const sectionHtml = `
+                    <div class="menu-section">
+                        <h3 style="font-size: 1.8rem; color: #2d3748; margin: 30px 0 20px 0; border-bottom: 2px solid #e53e3e; padding-bottom: 10px;">
+                            ${categoryDisplayNames[category] || category}
+                        </h3>
+                        <div class="menu-items-grid">
+                            ${items.map(createMenuItemCard).join('')}
                         </div>
                     </div>
                 `;
                 menuGrid.innerHTML = sectionHtml;
             }
         }
+    }
 
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Populate all menu items
-            updateMenuSideBySide();
-            
-            // Set up category pill click handlers
-            const categoryPills = document.querySelectorAll('.category-pill');
-            categoryPills.forEach(pill => {
-                pill.addEventListener('click', function() {
-                    // Remove selected class from all pills
-                    categoryPills.forEach(p => p.classList.remove('selected'));
-                    // Add selected class to clicked pill
-                    this.classList.add('selected');
-                    
-                    // Get category and update menu
-                    const category = this.dataset.category;
-                    
-                    if (category === 'all') {
-                        updateMenuSideBySide();
-                    } else {
-                        updateMenuSideBySideSingle(category);
-                    }
-                });
+    document.addEventListener('DOMContentLoaded', function() {
+        updateMenu();
+
+        // Category pill click handlers
+        const categoryPills = document.querySelectorAll('.category-pill');
+        categoryPills.forEach(pill => {
+            pill.addEventListener('click', function() {
+                categoryPills.forEach(p => p.classList.remove('selected'));
+                this.classList.add('selected');
+                const category = this.dataset.category;
+                updateMenu(category);
             });
-
-            // Mobile menu toggle
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                });
-            }
         });
-    </script>
+    });
+</script>
 </body>
 </html> 
